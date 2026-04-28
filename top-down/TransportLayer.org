@@ -1,0 +1,20 @@
+#+TITLE: Transport Layer
+#+DATE: <2026-04-28 Tue>
+#+AUTHOR: Doodo
+#+EMAIL: 2901652008@qq.com
+
+* Two goals
+ + reliably transmission
+ + congestion control
+
+* Introduction
+ 1. application(message) -> transport(segment) -> network(datagram; packet)
+ 2. router doesn't have a role in this layer
+** Relationship with **Network Layer**
+ + Network layer(NL) give a communication between **hosts**
+ + Transport layer(TL) give a communication between **processes**
+ + NL must provide **delay** and **bandwidth** guarantees.
+** Overview
+ The basic function of TL is extending the dilivery service provided by NL, which is called /multiplexing/ and /demultiplexing/. But TCP and UDP have differences. The later just implements p2p delivery and error checking. But more advanced functionality like congestion control and reliably delivery are implemented in TCP.
+* Multiplexing and Demultiplexing
+Imagine NL as a pipe, there are many streams, **HOW** to separate them. So the TL must add some metadata -- headers -- to help. This is **port**. UDP just use a two-tuple(dst add and dst port) while TCP use a four-tuple. TL will direct different tuple-flagged segment to differen **socket**. There is no one-to-one correspondence between socket and process. One process can spawn many threads will have their own socket.
