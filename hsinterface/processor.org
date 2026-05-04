@@ -1,0 +1,13 @@
+#+TITLE: Processor
+#+AUTHOR: Doodo
+#+DATE: <2026-04-29 Wed>
+
+
+* Overview
+** (LEGv8)All instruction can be classsed into three:
++ arithmetic-logic
++ memory-reference
++ branch
+** For all instructions, the first two steps are identical:
+1) send PC(program count) to memory to fetch the code
+2) read registers
