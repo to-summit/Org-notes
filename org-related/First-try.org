@@ -69,7 +69,7 @@ See \ref{label-example}
 
 #+CAPTION: an example also the note of link usage
 #+LABEL: label-example
-#+ATTR_ORG :width 50
+#+ATTR_ORG: :width 500px
 [[file:link.png]]
 
 LaTeX is worthy consuming more time, I have used it a period.
