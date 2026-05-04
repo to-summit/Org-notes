@@ -99,7 +99,7 @@ Insert a raw text you can use _block_ syntax or add a ':' at start of line
 #+INCLUDE      same as C include that include a file, `#+INCLUDE "path" src python`
 #+STARTUP      global settings: inlineimages
 #+END_EXAMPLE
-: #+GEGIN_SRC <language> <-n linenumber> <-h height> <-w width>
+: #+BEGIN_SRC <language> <-n linenumber> <-h height> <-w width>
 Some optional in **OPTIONS**:
 #+begin_example
 H:         set the number of headline levels for export
