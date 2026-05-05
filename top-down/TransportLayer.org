@@ -75,3 +75,32 @@ Muchmore, it's possible to have reliable data transfer when using UDP.(QUIC).
    #+ATTR_ORG: :width 500px
    [[file:sum_rdt_mechanisms.png]]
  - sequence number reordering problems
+
+* Connection-Oriented Transport: TCP
+Reference Documentation: [[https://www.rfc-editor.org/rfc/rfc793][RFC 793]],[[https://www.rfc-editor.org/rfc/rfc1122][RFC 1122]],[[https://www.rfc-editor.org/rfc/rfc2018][RFC 2018]],[[https://www.rfc-editor.org/rfc/rfc5681][RFC 5681]],[[https://www.rfc-editor.org/rfc/rfc7323][RFC 7323]]
+** The TCP Connection
++ Before two processes can communicate, they must connect first.
++ In order to establish a connection, TCP will use three special segments. So the process of connection is also called /three-way handshake/.
++ MSS(maximum segment size, no headers) vs MTU
++ TCP connection consists of two sets of _buffers_, _variables_ and _socket_.
+** TCP Segment Structure
+- sequence number: number from 0 to N, this number is the bytes' index.
+- acknowledgment number: receiver expected sequence number.
+- cumulative acknowledgments: only acknowledge bytes up to the first missing.
+- Header length: there are option headers in TCP segment.
+- flags:
+  + CWR,ECE -> congesiton control
+  + +URG -> urgent segment, worked with **Urgent data pointer**+
+  + +PSH -> acknowledge receiver upper-layer push now+
+  + ACK -> together with **Acknowledgment number**
+  + RST,SYN,FIN -> connection setup and teardown
+- piggybacked
+- even data field is empty, the segment still need a sequence number
+** RTT Estimation and Timeout
+ Set a appropriate timeout for timeout/retransmit mechanism
+ - EstimatedRTT = (1 - \alpha)*EstimatedRTT + \alpha*SampleRTT (RFC: \alpha = 1/8). This average is called EWMA(Exponential Weighted Moving Average) in statistics
+ - DevRTT = (1 - \beta)*DevRTT + \beta*|SampleRTT - EstimatedRTT| (RFC: \beta = 1/4)
+ - TimeoutInterval = EstimatedRTT + 4*DevRTT
+** RDT
+- Double the TimeoutInterval when timeout is triggered
+- [next time] Reread the fast retransmit part 
