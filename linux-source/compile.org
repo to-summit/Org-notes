@@ -1,0 +1,27 @@
+#+AUTHOR: Doodo
+#+EMAIL: 2901652008@qq.com
+#+DATE: <2026-05-18 Mon>
+#+TITLE: How to compile your linux distro
+
+* Prerequisites
+** Kernel
+** User Space(BusyBox for simple)
+** Bootloader(Syslinux)
+
+* Dataflow
+Bootloader will load kernel, kernel load busybox
+
+* Compile
+Get **bzImage** -> kernel
+Install statically compiled busybox, then use the compiled binary to make an [[https://wiki.debian.org/initramfs][initramfs]]
+Must additionally add a /init/ script
+Compress all files under initramfs to get an archive init.cpio
+
+* Boot
+1) Prepare a /disk/ with FAT filesystem. Install bootloader of linux(syslinux).
+2) Copy bzImage and init.cpio to this disk
+3) Use qemu to boot this disk
+
+* Overview
+ QEMU(seabios) -> Load and Ex MBR -> VBR(syslinux write) -> Ld and Ex ldlinux.sys -|
+                                        /init <- prompt boot: <- NO syslinux.cfg <-|
