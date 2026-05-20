@@ -1,0 +1,23 @@
+#+AUTHOR: Doodo
+#+EMAIL: 2901652008@qq.com
+#+TITLE: When boot: mdadm: no arrays found in config file or automatically
+#+DATE: <2026-05-20 Wed>
+
+* Background
+I enlarged my system's persistent storage. Also change the swap from swap partition to swapfile
+#+INCLUDE: /etc/fstab example
+Then everytime reboot, there will consume a little time to print "/mdadm: no arrays found in config file or automatically/", after several times, it will jump to the normal boot and print log.
+I found this [[https://blog.csdn.net/KuXiaoQuShiHuai/article/details/99686620][blog]], it same but there is a little difference. He reuse the swap partition but I just replaced it with [[https://www.baeldung.com/linux/swap-file-partition][swapfile]].
+
+* Solution
+#+begin_src bash
+   echo "RESUME=none" | sudo tee /etc/initramfs-tools/conf.d/resume
+   sudo update-initramfs -u -k all
+#+end_src
+ then reboot
+
+* Explanation
+1. when first built the system, the **initramfs-tools** will record the swap partition as a **resume**, everytime when you reboot the system, it will try to recover the system from swap partition +swap has this functionality UNEXPECTEDLLY !!!+, but I have deleted the swap partition, so it can't found the device and retry until exhaust time then give up.
+2. The =systemctl -b= won't get any information about this process, bacause this happens when mount initramfs instead of the true system partition.
+
+
