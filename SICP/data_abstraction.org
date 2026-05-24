@@ -1,0 +1,15 @@
+#+TITLE:  Buiding Abstraction With Procedures
+#+AUTHOR: Doodo
+#+EMAIL: 2901652008@qq.com
+
+It is the mark of an educated mind to be able to entain a though without accepting it.
+
+* The Element of Programming.
+** For a programming language, we describe it by there import components:
+1. Primitive expression. This is HOW our PL concerning with.
+2. Means of combination. How to combine a complex thing from simple thing.
+3. Means of abstraction. How to **name** and **manipulate** a complex thing.
+** The distinction betweeen function and procedure:
+In mathematics, we often learn **declarative knowledge**, while in programming, we need **imperative knowledge**. Author just expresses this by explaining **square root**. I happened to recall when first learned C, there is a programming homework, how to compute the root of an equation, I just write =x*x + x - 1 = 0; printf("%lf", x);=. Today I have learned, this is an important distinction between mathematics and programming, which is the difference between /declarative/ and /imperative/.
+** 
+
