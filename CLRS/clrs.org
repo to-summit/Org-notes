@@ -1,0 +1,19 @@
+#+AUTHOR: Doodo
+#+EMAIL: 2901652008@qq.com
+#+TITLE: CLRS: Data Structures
+#+DATE: <2026-05-25 Mon>
+
+* Preface
+ I want to find a **FULL** understand of data structure and algo. After searching many books and courses, finally, I got back to **CLRS**, the most famous book in this field. I won't record everything in the processing of reading, just some I think is **worthy** and **needed** to be noted.
+
+* Chapter: Data Structures
+ Set in CS has difference compared with set in mathematics, that in former it is changing while unchanging in later. We call this dynamic. We don't need to implement a set with all supported primitive operations, just according to the purpose, such as dictionary, for which we just implement **insert**, **delete** and **test**, and min-priority heap, for which we need to implement **insert** and **get-min** which is more complicated.
+
+ Element in a set have a **key** value, satellite which is not related in implementation, and other attributes related to other elements in the set.
+
+* Chapter: Graph Algorithms
+ * Searching algorithms is most important in graph. Most algorithms begin from this. Just through searching the graph we can get the most structural information.
+
+ * Represent a graph have two ways. Adjacency list or adjacency matrix. List is memory efficient O(U + V), but we can't get a algo for search e(u, v) better than traverse the G.adj[u]. Matrix memory cost O(V^2), but when undirected when can use compressed matrix and when unweighted we can use just one bit for one edge. So under most cases, we prefer the list representation, but when there is possible small scale, we also can choose matrix.
+
+ * 
