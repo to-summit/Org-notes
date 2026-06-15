@@ -34,11 +34,11 @@
     3) C-c C-u same level, C-c C-u improve level
     4) C-c C-j browser precis
     5) M-RET/M-S-RET insert a same level (TODO)heading
-    6) C-c l/C-c C-l/C-c C-o store/insert/open link
+    6) C-c l/C-c C-l/C-c C-o store/insert/open link 
     7) C-c C-q add tags
     8) C-c C-e export
     9) C-c C-d insert deadline
-    10) C-c C-x f insert a footnote or type C-c C-c will jump at footnote and text #<<footnote-usage>>
+    10) C-c C-x f insert a footnote or type C-c C-o will jump at footnote and text #[fn:1]<<footnote-usage>>
     11) C-c . create a timestamp 
     12) C-c C-, insert a block
     13) C-c C-x C-h for help documennt
@@ -135,8 +135,11 @@ d:         turn on/off inclusion of drawers
 (At least five '-' will give a separate line)
 * Reference
 At the same time to list the reference, it is a good chance to show how
-to do the reference. We have talked about how to add [[footnote-usage][footnote]](this is a usage of anchor).
+to do the reference. We have talked about how to add [[footnote-usage][footnote]](this is a usage of anchor, press C-c C-o will jump to this anchor).
 1. [[https://www.cnblogs.com/qlwy/archive/2012/06/15/2551034.html][cnblogs(introduction to org-mode)]]
 2. [[https://www.cnblogs.com/holbrook/archive/2012/04/12/2444992.html][cnblogs(emacs learning notes)]]
 3. [[https://orgmode.org/manual/Citation-handling.html][Here are also some more powerful citation way]](I don't want to add them directly now
    becasue I have talked we just add what we can do in practice now)
+
+* Footnotes
+[fn:1] This is how to use footnote. C-c C-x f will create or edit a footnote, C-c C-o will jump to the text. More [[https://www.cnblogs.com/halberd-lee/p/10614222.html][summarize.]]

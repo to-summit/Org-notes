@@ -2,3 +2,5 @@
 #+EMAIL: 2901652008@qq.com
 #+DESCRIPTION: Record the **shit** from everywhere
 
+* Real shit will be smelled anywhere
+** TODO Can I write a text program which is also the binary executable ? <2026-06-15 Mon 10:11>
