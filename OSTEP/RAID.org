@@ -1,0 +1,39 @@
+* We hope our disk satisfy: faster, larger, more reliable
+** Basic idea: use more INEXPENSIVE disks to build A user disk 
+** Transparency: introduce a new functionality but don't need to modify the upper OS/applications.
+** Main thread: Interface, Fault Model, Three axes to evaluate a RAID. Feature: other issues that is important for RAID.
+
+* Interface
+** OS just need to send a logcial I/O normally, RAID systems will work like a complete computer, it may issue multiple physical I/Os corresponds to one logical I/O, it has own processor, memory, disks, it even has volatile and non-volatile memory, former for buffer, later for partial computation.
+* Fault model
+** Simplest fault model: a disk has two states -> working or failed. We just one suppose that a corruption is easily detected. A more realistic circumstance is : A disk may have silent failures and may be just one block is inaccessible.
+* Evaluation
+** The damn users offer three acquires for their disk: More capacity and faster but don't want to pay more, also reliable, so we must metric our design from these three directions.
+
+* RAID0 can use stripe to accelerate the read/write, use the mechanism of parallism. But the choice of chunk size is a real engineer problem. RAID0 don't satisfy Rundundent, but its capacity and performance is perfect.[Also reliablity is worst:(]
+
+* COMMENT Analysis Directions
+#+BEGIN_SRC latex
+\documentclass{article}
+\usepackage{amsmath}
+\begin{document}
+\[
+  \begin{cases}
+    \text{Single Request Latency} \\
+    \text{Steady state Throughout}
+    \begin{cases}
+      \text{Sequential} \\
+      \text{Random}\\
+    \end{cases} \\
+  \end{cases}
+\]
+\end{document}
+#+END_SRC
+
+* RAID1 use mirror to improve reliability. But this behavior will decrease the read/write performance except the single read/random read. Also, becasue the introducation of redundance, the capacity also decrease. 
+
+* COMMENT For solving the possible inconsistent problem when handling writing, we must introduce the log system for the disk to record what they will do, then recover the consistent after crash. Log system will be implemented by special hardware(volatile RAM) so that won't incur too many performance impact. 
+
+* RAID4 use parity disk to store information by XOR operation's mathematical property. Though compared to the mirrored system, we improve the capacity, but we lost many of performance, especially for the random write(small-write problem). 
+
+* RAID5. The main bottleneck of RAID4 is the parity information store on the same one, so we can't do parallel IO. RAID5 scatter the parity information to many different disks, so that in many cases we can reutilize the parallism. 

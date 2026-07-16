@@ -1,0 +1,14 @@
+* CRUX
+** How does the OS manage the persistent storage ?
+** What API is provided to the user ?
+** What is important when implement this API ?
+
+* File System just give two blobs: file and directory
+
+* Open file System
+** Each proc (struct proc) have a file struct array files[OFILE]. In file struct OS will maintain the offset, permissions, ref, ... If one file was opened twice, it will be allocated two different file struct.
+** In the system there is a ftable will represent all of the opened files in the system. If one file was opened twice, it will also have two entries in OFT. You can break this by the fork() and dup*() syscall.
+** Because of the performance thinking, system may buffer the changes of the underlying disks, use fsync() to enforce the write-back, **IMPORTANT**, not only fsync the file, but also the parent directory.
+
+* Summary
+** For a summary of terms in file system, lookaside the corresponding chapter's last Aside(Files and Directories). 
