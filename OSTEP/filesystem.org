@@ -12,3 +12,20 @@
 
 * Summary
 ** For a summary of terms in file system, lookaside the corresponding chapter's last Aside(Files and Directories). 
+
+* CRUX
+** How to build a filesystem than support the last chapter talked files and directories ... operations
+
+* Two important questions
+** fs use what data structures to store the file's content ?
+** How does the fs mapping the syscall to the corresponding disk operations ?
+
+* Inode -> Indexed node
+** inode is just a data structure used to store metadata, so you can use your way to do this, no essential *inode*. 
+** In inode, for locate the data block, you can choose to store the pointer of the data block, this is not convenient for large files, in this case, you may need to use multi-level indexing. Another way is use extent, something like segment in VM.
+
+* Directory management
+** Directory's inode is just like regular files', but the filetype will told you it is indeed a directory instead of a regular file. The data block store the tuple of user-friendly name and inumber, also a little extra information.
+
+* Performance
+** We have the ways to implement the support for file and directory, but this need extremely high I/O cost. Batch, scheduling, delaying are common ways to improve. For some applications, they may choose to skip the OS to directly commuciate with the disk.
