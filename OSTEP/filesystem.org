@@ -10,6 +10,9 @@
 ** In the system there is a ftable will represent all of the opened files in the system. If one file was opened twice, it will also have two entries in OFT. You can break this by the fork() and dup*() syscall.
 ** Because of the performance thinking, system may buffer the changes of the underlying disks, use fsync() to enforce the write-back, **IMPORTANT**, not only fsync the file, but also the parent directory.
 
+* COMMENT mmap syscall
+** you can use mmap to map a disk part into memory so that you can use memory operation instructions to handle disk content. The corresponding chapter give a example to implement a persistent memory based stack data structure.
+
 * Summary
 ** For a summary of terms in file system, lookaside the corresponding chapter's last Aside(Files and Directories). 
 
