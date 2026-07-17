@@ -1,0 +1,5 @@
+* FFS
+** This is a simple example which can be viewed as a refined version of original UNIX file system. 
+** FFS use many clever categories to accelerate the visit of disk. Such as put the a directory and its files at a group. For large files(larger than a group), put the part of this file under the first group, then use other group to place the rest. 
+** The most important thing I learned from this chapter(or the whole book) is that a good metric is sooooo important. When I think the analysis of FFS's policy, I have no idea, but the author prompt a metric that use specialised *distance* to compare, it simultaneouly clear.
+** FFS is a watershed moment in the file system history.
