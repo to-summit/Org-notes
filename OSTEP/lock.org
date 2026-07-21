@@ -1,0 +1,31 @@
+* From the perspective of a programmer
+** The OS provides the `mutex(mutual exclusion)` API for us to use so that we can get the correct behavior, under the help of hardware.
+
+* From the perspective of a OSer
+** The hardware give us some mechanism, such as more instructions, how can we implement the abstraction like `mutex`. 
+** In the process of *inventing* this, we must think of three metrices(again, a good criteria is very important):
+1) Correctness. This is the first, if the implementation is incorrect, anything other will be meaningless.
+2) Fairness. We're OSer, our assignment is to manage the use of many *users*, so we need to be a fair judgement.
+3) Performance. The goal of multi-threaded prgromming is to utilize the multiply CPUs to improve the performance, if we spend most of time in implementing this behavior, why not we just use single-thread programming ?
+
+* Solutions
+** Where is the root of evil? Answer: Context switch. So the simplest way is disabling interrupt of CPU. The cons:
+1) User-space application will use privileged instruction.
+2) Malicious program will hold CPU forever.
+3) CPU will lose many important information.
+4) This is just correct when there is only one CPU/core.
+
+In the internal OS, it can use this way to implement some simple synchronization, because the problems mainly comes from user.
+** Can we use some flags to indicate the ability to enter the critical section ? This though directly cause the way of spin-wait. At first this is implemented by pure software, it have been proved incorrect easily, but the idea behind it give the direction of *improvement of hardware*.
+** COMMENT But the pure software implementation is not definitely impossible. Such as the Dekker/Peterson algorithm (very complicated ...). But because the relaxed memeory consistency models (may be more read on this later), this is indeed incorrect. Correspondingly, just introduce a little support from hardware, we will get a simple and correct version. 
+*** test-and-set (xchg + spin-wait)
+*** compare-and-swap (useful in lock-free synchronization)
+*** Loaded-Linked and Store-Conditional
+*** fetch-and-and (based on this ticket-lock ensures fairness)
+** Above ways can get things done, but the performance is bad. The root evil is the *spinning* operation, how can we avoid the spinning operation ? Before are the hardware upgrade, now comes to *OS*.
+** COMMENT spinning lock in sometimes is not only poor performance, but also incorrect because the schedule and lock hold.
+*** Just yield, baby! (can't guarantee fairness)
+*** Queues: Sleeping instead of spinning
+Last solution will cost much on context switch, to solve this, it's nature to put all thread which want the same lock at one queue so that when one thread complete, next acquired thread will be waken up. But in order to manipulate the queue, it still need a little spinning, but this time the cost is small. Besides, the order of many events make sense. The park() call should be upgraded to setpark() for the *Lost Wakeup* problem.
+*** Two phases lock: just the combination of above two.
+The futex(Linux high-performance implementation) and the former two-phase lock I think both are supposing the time spent in critical section is little.
