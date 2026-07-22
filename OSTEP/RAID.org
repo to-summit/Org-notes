@@ -12,7 +12,7 @@
 
 * RAID0 can use stripe to accelerate the read/write, use the mechanism of parallism. But the choice of chunk size is a real engineer problem. RAID0 don't satisfy Rundundent, but its capacity and performance is perfect.[Also reliablity is worst:(]
 
-* COMMENT Analysis Directions
+* Analysis Directions
 #+BEGIN_SRC latex
 \documentclass{article}
 \usepackage{amsmath}
@@ -32,7 +32,7 @@
 
 * RAID1 use mirror to improve reliability. But this behavior will decrease the read/write performance except the single read/random read. Also, becasue the introducation of redundance, the capacity also decrease. 
 
-* COMMENT For solving the possible inconsistent problem when handling writing, we must introduce the log system for the disk to record what they will do, then recover the consistent after crash. Log system will be implemented by special hardware(volatile RAM) so that won't incur too many performance impact. 
+* For solving the possible inconsistent problem when handling writing, we must introduce the log system for the disk to record what they will do, then recover the consistent after crash. Log system will be implemented by special hardware(volatile RAM) so that won't incur too many performance impact. 
 
 * RAID4 use parity disk to store information by XOR operation's mathematical property. Though compared to the mirrored system, we improve the capacity, but we lost many of performance, especially for the random write(small-write problem). 
 
