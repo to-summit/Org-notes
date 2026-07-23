@@ -1,0 +1,10 @@
+* Graph Algorithms
+1) Some basic knowledge and conventions about graph in CS.
+2) Two basic algorithms used. Most others are based on them.
+3) Two simple applications.
+
+* Basis
+- Graph: /directed/ and /undirected/
+- Storage: /adjacency list/ or /adjacency matrix/
+- The most important two things of a graph: V and E.
+- List is more space-efficient than Matrix(at most asymptotically equal). But we prefer later, because it's simpler and more efficient and, in unweighted graph we just need one bit to store one edge.
