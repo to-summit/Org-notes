@@ -1,0 +1,44 @@
+* Backgroud
+ I have a shallow knowledge about network tools, just some basis. Today I was trying to use the *lynx* tool to read the wikipages and hacker news(because I feel visually tired for CSS).
+ 
+ Then I found it always stuck at the "Making HTTPS connection to news.ycombinator.com", but I can connect to it using Firefox. Following the AI's instructions, I found the key. This notes is used to record it and do some notes on network tools.
+
+* Fixing
+ 1. First check the DNS server. If DNS can't resolve the domain name successfully, no later. useful commands like *host* and *dig*. If this failed, check the configuration file **/etc/resolv.conf/**. You can try to modify the DNS server by specify it in command line.
+ 2. Then test Network layer. The well-known command *ping*. But the failure doesn't mean the problem. The destination server may not start the ICMP server.
+ 3. Check transport layer can use the *curl* command. You can use options 's' and 'I' so that the output is clear so that you can focus on problem. Common for saving your time, you can use '--max-time' and '--retry' if you are sure your network is roughly OK. In my case, here I failed, then I suddenly thought that I open the VPN, so I append this prompt to agent. Here, I also check if there exist the difference between IPv4 and IPv6 by '-4' and '-6' options. 
+ 4. According to the VPN information and the error of curl. I firstly used the *ss* command to find the listening port. Then ensure the shell don't have the proxy *env | grep proxy*. Last test the proxy by the '-x' option of curl. This time the connection is normal. Also checked the configuration file under **~/.mozilla/firefox/** by search for keyword **proxy**.
+
+* Summary
+ For this experience, I don't think there are too many things to learn, but I think this is a good time to learn how to find problems layer by layer and to summarize the common used network related commands by layers.
+
+ |-------------+----------------------------|
+ | DNS         | host, dig, nslookup        |
+ | Link        | ip link, arp               |
+ | Network     | ping, traceroute, ip route |
+ | Transport   | nc, ss, telnet, nmap       |
+ | Application | curl, wget, lynx, openssl  |
+ |-------------+----------------------------|
+
+ The main focus on *curl* command:
+
+ curl -svI --max-time 10 https://news.ycombinator.com 2>&1
+ # -s quiet  -v verbose  -I HEAD only  --max-time dead wait
+ |------------------------------------------------------+--------------------------------+--------------------------------|
+ | output                                               | meaning                        | next                           |
+ |------------------------------------------------------+--------------------------------+--------------------------------|
+ | Connected to news.ycombinator.com (1.2.3.4) port 443 | TCP handshake successfully     | TLS                            |
+ | SSL connection using TLSv1.3                         | TLS handshake successfully     | HTTP                           |
+ | HTTP/2 200                                           | All normal                     | else                           |
+ | connect() time out!                                  | can't compplete TCP            | banned port or IP can't arrive |
+ | connection refused                                   | host arrive but port is closed | Don't open the service         |
+ | No route to host                                     | Route problems                 | check *ip route*               |
+ | SSL certificate problem                              | TLS certificate failed         | expired or mid-man             |
+ | curl: (28) Connection timed out after X ms           | timeout                        | proxy, firewall, IPv4/v6       |
+ | curl: (6) Could not resolve host                     | DNS fail                       | Back to domain name resolv     |
+ | curl: (35) SSL connection error                      | TLS handshake fail             | curl -sv check for concrete    |
+ | Trying IPv6 first ... then timeout                   | IPv6 can't connect             | curl -4 force the use of IPv4  |
+ |------------------------------------------------------+--------------------------------+--------------------------------|
+
+
+ More helpful things I think the manpage of curl and nc are the most readable and desirable.
