@@ -5,7 +5,7 @@
 
 * Before everything
     In Org-mode, we use * to present headings just like #
-    in Markdown. Instead of using everything in Org-mode
+    in Markdown. Instead of learning everything in Org-mode
     I choose to just learn what I need. This is not very
     precise, because if there are some boring time I will
     want to learn some useful tricks. Whatever, no matter
@@ -110,10 +110,10 @@ Recently I am learning the R language. I don't want to download RStudio, not to 
 1. modify the org-babel-do-load-languages to support R source block.
 2. the structure of a source block([[*Shortcuts][insert-shortcut]]):
 #+begin_example
-#+NAME: <name>
-#+BEGIN_SRC <language> <switches> <header arguments>
+,#+NAME: <name>
+,#+BEGIN_SRC <language> <switches> <header arguments>
 <body>
-#+END_SRC
+,#+END_SRC
 #+end_example
 
 
