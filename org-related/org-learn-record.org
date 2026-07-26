@@ -12,7 +12,6 @@
     what I will learn about Org-mode, it will be recorded
     here.
     
-    
 * Basic Format
     1. usually
        + **Bold**
@@ -26,62 +25,38 @@
     3. others
        * =Mono=
 
-* Shortcuts
-    1) (S-)TAB cycle current chapter(all file)'s states
-       (fold->unfold next level->completely unfold)
-       
-    2) C-c C-n/C-p jump between headings.
-    3) C-c C-u same level, C-c C-u improve level
-    4) C-c C-j browser precis
-    5) M-RET/M-S-RET insert a same level (TODO)heading
-    6) C-c l/C-c C-l/C-c C-o store/insert/open link 
-    7) C-c C-q add tags
-    8) C-c C-e export
-    9) C-c C-d insert deadline
-    10) C-c C-x f insert a footnote or type C-c C-o will jump at footnote and text #[fn:1]<<footnote-usage>>
-    11) C-c . create a timestamp 
-    12) C-c C-, insert a block
-    13) C-c C-x C-h for help documennt
+* Shortcuts And Table Usage Demo
+|-----------------------+-------------------------------------------------------------------------------------|
+| shorcut               | behavior                                                                            |
+|-----------------------+-------------------------------------------------------------------------------------|
+| (S-)TAB               | cycle current chapter(all file)'s states                                            |
+| C-c C-n/C-p           | jump between headings                                                               |
+| C-c C-u               | jump to the present line's heading line                                             |
+| C-c C-j               | browser the whole document, for quickly navigate                                    |
+| M-RET/M-S-RET         | insert a same level (TODO)heading                                                   |
+| C-c l/C-c C-l/C-c C-o | store/insert/open link                                                              |
+| C-c C-q               | add tags                                                                            |
+| C-c C-e               | export                                                                              |
+| C-c C-d               | insert deadline                                                                     |
+| C-c C-x f             | insert a footnote or type C-c C-o will jump at footnote and text #[fn:1] <<anchor>> |
+| C-c .                 | create a timestamp                                                                  |
+| C-c C-,               | insert a block                                                                      |
+| C-c C-x C-h           | for help documennt                                                                  |
+| C-c \vert{}                 | create/convert a region to a table                                                  |
+| M-LEFT/RIGHT/UP-DOWN  | same behavior like the move-text package, but just in table (add shift to delete)   |
+| C-c ^                 | sort currect table according to the current column                                  |
+|-----------------------+-------------------------------------------------------------------------------------|
 
-
-* Table
-Just type | name1 | name 2 | ... | is OK
-Shortcuts:
-+ C-c | create/convert a table
-+ TAB/S-TAB next region(RET next line), create if necessary
-+ M(-S)-LEFT/M(-S)-RIGHT M-UP/M-DOWN move(delete) column/row
-+ C-c - add horizontal line at next line
-+ C-c ^ sort according to current column 
-
-
-try :
-|------------------+-------|
-| subject          | level |
-|------------------+-------|
-| Computer Science | ***** |
-| English          | ****  |
-| Mathmetics       | ***** |
-|------------------+-------|
-
-
-* Image and LaTeX
-See \ref{label-example}
-
-#+CAPTION: an example also the note of link usage
-#+LABEL: label-example
-#+ATTR_ORG: :width 500px
+* Image 
+See \ref{example}
+#+CAPTION: You can add a caption 
+#+LABEL: example
+#+ATTR_ORG: :width 800px :height 400px
 [[file:link.png]]
 
-LaTeX is worthy consuming more time, I have used it a period.
-So I just put the [[https://orgmode.org/manual/Embedded-LaTeX.html][official manual]] here.
-
 * Metadata
-Insert a raw text you can use _block_ syntax or add a ':' at start of line
+Insert a raw text you can use =block= syntax or add a =:= at start of line
 #+BEGIN_EXAMPLE
-#+TITLE:       the title to be shown (default is the buffer name)
-#+AUTHOR:      the author (default taken from user-full-name)
-#+DATE:        a date, an Org timestamp1, or a format string for format-time-string
-#+EMAIL:       his/her email address (default from user-mail-address)
 #+DESCRIPTION: the page description, e.g. for the XHTML meta tag
 #+KEYWORDS:    the page keywords, e.g. for the XHTML meta tag
 #+LANGUAGE:    language for HTML, e.g. ‘en’ (org-export-default-language)
@@ -99,7 +74,6 @@ Insert a raw text you can use _block_ syntax or add a ':' at start of line
 #+INCLUDE      same as C include that include a file, `#+INCLUDE "path" src python`
 #+STARTUP      global settings: inlineimages
 #+END_EXAMPLE
-: #+BEGIN_SRC <language> <-n linenumber> <-h height> <-w width>
 Some optional in **OPTIONS**:
 #+begin_example
 H:         set the number of headline levels for export
@@ -131,15 +105,28 @@ timestamp: turn on/off inclusion creation time into exported file
 d:         turn on/off inclusion of drawers
 #+end_example
 
+* Src Block
+Recently I am learning the R language. I don't want to download RStudio, not to mean that I don't like the modern UI of software, indeed I also use notebook if I need to interactively use python. So I have to use org-mode to replace the RMarkdown.
+1. modify the org-babel-do-load-languages to support R source block.
+2. the structure of a source block([[*Shortcuts][insert-shortcut]]):
+#+begin_example
+#+NAME: <name>
+#+BEGIN_SRC <language> <switches> <header arguments>
+<body>
+#+END_SRC
+#+end_example
+
+
 --------
 (At least five '-' will give a separate line)
 * Reference
 At the same time to list the reference, it is a good chance to show how
-to do the reference. We have talked about how to add [[footnote-usage][footnote]](this is a usage of anchor, press C-c C-o will jump to this anchor).
+to do the reference. We have talked about how to add [[anchor][footnote]](this is a usage of anchor, press C-c C-o will jump to this anchor).
 1. [[https://www.cnblogs.com/qlwy/archive/2012/06/15/2551034.html][cnblogs(introduction to org-mode)]]
 2. [[https://www.cnblogs.com/holbrook/archive/2012/04/12/2444992.html][cnblogs(emacs learning notes)]]
 3. [[https://orgmode.org/manual/Citation-handling.html][Here are also some more powerful citation way]](I don't want to add them directly now
    becasue I have talked we just add what we can do in practice now)
+4. [[https://emacsdocs.org/][emacsdocs]] Light weight reading experience
 
 * Footnotes
 [fn:1] This is how to use footnote. C-c C-x f will create or edit a footnote, C-c C-o will jump to the text. More [[https://www.cnblogs.com/halberd-lee/p/10614222.html][summarize.]]
