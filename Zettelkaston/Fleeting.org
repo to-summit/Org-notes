@@ -3,6 +3,6 @@
 #+DESCRIPTION: Record the **shit** from everywhere
 
 * Real shit will be smelled anywhere
-** TODO Can I write a text program which is also the binary executable ? <2026-06-15 Mon 10:11>
-** TODO How about use QEMU to boot a physical disk instead of a virtual one ? Such as in my SSD, there are Linux and Windows, can I boot linux, then use QEMU to boot the Windows partition ? I have search some posts, but failed, maybe at some leisure time this is a is a good play :) <2026-07-17 Fri 20:51>
-** TODO As I known, the original computer program is hardcoded circuit, so every you need to test your program, you need to rearrange the circuit. Before this is obselete, but nowadays I feel the development of general AI is slow, why we just hardcoded all the AI logic in a circuit ? Because the respone speed is also important when using it. After some search, I found already have somebody done this, and share this like a website. That's a good direction in the furture. <2026-07-17 Fri 20:54>
+- Can I write a text program which is also the binary executable ? <2026-06-15 Mon 10:11>
+- How about use QEMU to boot a physical disk instead of a virtual one ? Such as in my SSD, there are Linux and Windows, can I boot linux, then use QEMU to boot the Windows partition ? I have search some posts, but failed, maybe at some leisure time this is a is a good play :) <2026-07-17 Fri 20:51>
+- As I known, the original computer program is hardcoded circuit, so every you need to test your program, you need to rearrange the circuit. Before this is obselete, but nowadays I feel the development of general AI is slow, why we just hardcoded all the AI logic in a circuit ? Because the respone speed is also important when using it. After some search, I found already have somebody done this, and share this like a website. That's a good direction in the furture. <2026-07-17 Fri 20:54>

@@ -13,4 +13,4 @@ For the sake of optimizition. The compiler may drop some infomation so that the 
 
 In order to differentiate between application's version, FlameGraph can show the delta between different functions.
 
-For the whole introduction to FlameGraph and how to read the graph. Read the origin: [[FlameGraph][https://cacm.acm.org/practice/the-flame-graph/]]
+For the whole introduction to FlameGraph and how to read the graph. Read the origin: [[https://cacm.acm.org/practice/the-flame-graph/][FlameGraph]]
