@@ -1,0 +1,16 @@
+#+OPTIONS: ^:{}
+
+* Goals
+ - How software is consuming resources
+ - How did this change compared to last version
+ Software profilers' output is verbose(DTrace, perf_count). Flame graph is a visual way.
+* Introduction
+The color is meaningless, just for justify. The order is also alphabetical but it merges the adjacent function calls. And y-axis shows the call stacks.
+
+The profilers will generate the data, and there are needed for some *converters* to collapse the data to be a short form. Then it can use grep/awk/sed to process it, the final script using perl will generate a svg outcome. 
+
+For the sake of optimizition. The compiler may drop some infomation so that the profiler can't give the enough or complete infomation for FlameGraph to generate a complete picture. You may need some compilers' options to solve this. For the perl itself, the output picture may be too big to fit into a browser, to solve this, we can drop some thin code path to reduce the size.
+
+In order to differentiate between application's version, FlameGraph can show the delta between different functions.
+
+For the whole introduction to FlameGraph and how to read the graph. Read the origin: [[FlameGraph][https://cacm.acm.org/practice/the-flame-graph/]]
