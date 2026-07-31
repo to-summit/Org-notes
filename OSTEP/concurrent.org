@@ -1,0 +1,21 @@
+* Locked Data Structure
+- Correctness
+- Performance
+
+* Counter
+Implement a working is not hard, but we need to judge if we need to do more to improve the performance. From this perspective, we need a benchmark to measure the performance. /No need to do something fancy if something simple will work/
+
+Perfect scaling: the threads complete just as quickly on multiple processors as the single thread does on one.
+
+Approximate: each thread have a local counter, when it hit the THRESHOLD, it will race the global lock then add local to global. I have tested the program on my machine, outcome is not like the textbook, indeed when the threads is little even perform worse.
+
+* Linked List
+Be wary of control flow in a function, you may possible forget to release the lock.
+
+Hand-over-hand(lock coupling) is a way to scale the locked linked list. But in practice this is performance bad, real world choose other lock-free implementation.
+
+* Queue
+Textbook use Michael and Scott Concurrent Queue, I feel this thinking a little like the sentinel in common data structure.
+
+* Hast Table
+Implemented by concurrent linked list.
