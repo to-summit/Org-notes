@@ -1,0 +1,54 @@
+* Overview
+1. 2 <=> 8 <=> 16
+2. How instructions is designed and executed ?
+3. von Neumann architecture (five characteristic)
+4. How a high-level program being compiled and executed ?
+5. The abstraction competence
+6. MOS -> Gates -> Hardwares
+7. Architecture: Hardware <-- Microcontrol --> ISA <-- OS --> Applications
+8. Frequency, Cycles, CPI
+9. IPS(MIPS), Benchmark, Amdahl(optimized-ratio / improve + other-ratio)
+
+* Bus System
+1. analog and digit; continual and discrete; parrallel and serial
+2. Band width = number of channels * working freq; working freq = Bus clock freq * times per cycle;(Bus clock is inequal to CPU clock)
+3. Bus arbitration(decide on which device will use the BUS) <<arbitration>>
+   Master/slave: if can control the bus
+   - Focused
+     + linked, sequential, simple
+     + timer
+     + independent, log_{2}N
+   - Distributed
+     each device have one arbitrator, 2N
+4. Bus transaction cycle and transfer cycle
+   Time consumed by one transaction which includes:
+   - Bus allocation [[arbitration]]
+   - Address
+   - Data transfer
+   - Release control
+
+   We call the last three transfer cycle.
+5. Bus Time Sequential
+   - sync
+   - async(full-lock, no-lock, semi-lock)
+   - semi-sync(slave can send WAIT signal to indicate data haven't been ready)
+   - separating(master will release the control after address been sent to slave)
+6. Data transfer way
+   (parrallel, serial) x (sync, async)
+
+   sync serial:
+   - another cycle signal
+   - embeding time clock
+
+   async serial:
+   - Frame: begin bit, stop bit, parity check ...
+   - Baud rate, bit rate
+
+   Burst transfer: you can transfer multiply data bytes at one data transfer cycle.
+7. Bus architecture
+   ISA -> PCI -> PCIe view this video: https://www.bilibili.com/video/BV1n4411m7HX/
+   
+   Traditional: processor chip + north bridge + south bridge
+   
+   Modern: [[./modern-arch.png]]
+
