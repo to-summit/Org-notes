@@ -10,15 +10,15 @@
 * Introduction
  1. application(message) -> transport(segment) -> network(datagram; packet)
  2. router doesn't have a role in this layer
-** Relationship with **Network Layer**
- + Network layer(NL) give a communication between **hosts**
- + Transport layer(TL) give a communication between **processes**
- + NL must provide **delay** and **bandwidth** guarantees.
+** Relationship with *Network Layer*
+ + Network layer(NL) give a communication between *hosts*
+ + Transport layer(TL) give a communication between *processes*
+ + NL must provide *delay* and *bandwidth* guarantees.
 ** Overview
  The basic function of TL is extending the dilivery service provided by NL, which is called /multiplexing/ and /demultiplexing/. But TCP and UDP have differences. The later just implements p2p delivery and error checking. But more advanced functionality like congestion control and reliably delivery are implemented in TCP.
  
 * Multiplexing and Demultiplexing
-Imagine NL as a pipe, there are many streams, **HOW** to separate them. So the TL must add some metadata -- headers -- to help. This is **port**. UDP just use a two-tuple(dst address and dst port) while TCP use a four-tuple. TL will direct different tuple-flagged segment to differen **socket**. There is no one-to-one correspondence between socket and process. One process can spawn many threads which will have their own socket.
+Imagine NL as a pipe, there are many streams, *HOW* to separate them. So the TL must add some metadata -- headers -- to help. This is *port*. UDP just use a two-tuple(dst address and dst port) while TCP use a four-tuple. TL will direct different tuple-flagged segment to differen *socket*. There is no one-to-one correspondence between socket and process. One process can spawn many threads which will have their own socket.
 
 * Connectionless Transport: UDP
 #+NAME: UDPClient.py
@@ -46,7 +46,7 @@ Imagine NL as a pipe, there are many streams, **HOW** to separate them. So the T
       serverSocket.sendto(modifiedmessage.encode()), clientAddress)
 #+END_SRC
 
-** UDP won't disturb you before he do it, that is /connectionless/, **TCP is not always preferable for UDP** for these reasons:
+** UDP won't disturb you before he do it, that is /connectionless/, *TCP is not always preferable for UDP* for these reasons:
 - Some real-time applications can tolerate some loss, they can implement some additional functionalities in application layer based on UDP.
 - UDP don't need to spend resources in establishing connection. Indeed, google's Chrome use QUIC to achieve _reliablity_ in application layer.
 - UDP don't need to maintain /state/ and /prameters/ when communicating.
@@ -66,7 +66,7 @@ Muchmore, it's possible to have reliable data transfer when using UDP.(QUIC).
  - one-state -> stop-and-wait protocols -> alternating-bit protocol -> pipelining
  - ARQ(Automatic Repeat reQuest) protocols: if the sender receive an negative acknowledgments, it will automatically resend the packet. For implementing this protocol, three components are necessary:
    + Error detection: decide if receiver need to send a NAK
-   + Receiver feedback: positive(ACK) and negative(NAK) acknowledgments. Indeed, NAK can be replaced by **duplicate ACKs**.
+   + Receiver feedback: positive(ACK) and negative(NAK) acknowledgments. Indeed, NAK can be replaced by *duplicate ACKs*.
    + Retransmission
  - GBN(Go-Back-N)/sliding-window protocol: cumulative acknowledgment is important
  - SR(Selective Repeat): in order to improve the performance of GBN
@@ -90,9 +90,9 @@ Reference Documentation: [[https://www.rfc-editor.org/rfc/rfc793][RFC 793]],[[ht
 - Header length: there are option headers in TCP segment.
 - flags:
   + CWR,ECE -> congesiton control
-  + +URG -> urgent segment, worked with **Urgent data pointer**+
+  + +URG -> urgent segment, worked with *Urgent data pointer*+
   + +PSH -> acknowledge receiver upper-layer push now+
-  + ACK -> together with **Acknowledgment number**
+  + ACK -> together with *Acknowledgment number*
   + RST,SYN,FIN -> connection setup and teardown
 - piggybacked
 - even data field is empty, the segment still need a sequence number
