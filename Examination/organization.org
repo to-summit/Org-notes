@@ -52,3 +52,9 @@
    
    Modern: [[./modern-arch.png]]
 
+* [[https://en.wikipedia.org/wiki/Computer_memory][Main Memory]]
+1. Digit logic circuit: description -> truth table -> sum of multiply(* <=> AND, + <=> OR) -> PLA(Programmable Logic Array)
+2. decoder(138), MUX(multiplexer), Latch(RS Latch[Reset and set] -> Gated D Latch), edge D flip-flop + WE -> staged register [[https://www.bilibili.com/video/BV1efLQzZECs/][Register]]
+3. Machine word line ~= bits of GPR (will be corrected later)
+4. ROM: MROM, PROM(only once write), EPROM(light), EEPROM(electron) :=> only the storage unit is different, Flash memory(...)
+5. two dimensional: XY-decode
