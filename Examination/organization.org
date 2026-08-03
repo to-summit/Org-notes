@@ -1,4 +1,4 @@
-* Overview
+* Basis
 1. 2 <=> 8 <=> 16
 2. How instructions is designed and executed ?
 3. von Neumann architecture (five characteristic)
@@ -52,9 +52,27 @@
    
    Modern: [[./modern-arch.png]]
 
-* [[https://en.wikipedia.org/wiki/Computer_memory][Main Memory]]
+* [[https://en.wikipedia.org/wiki/Computer_memory][Main Memory]] [fn:1]
 1. Digit logic circuit: description -> truth table -> sum of multiply(* <=> AND, + <=> OR) -> PLA(Programmable Logic Array)
-2. decoder(138), MUX(multiplexer), Latch(RS Latch[Reset and set] -> Gated D Latch), edge D flip-flop + WE -> staged register [[https://www.bilibili.com/video/BV1efLQzZECs/][Register]]
-3. Machine word line ~= bits of GPR (will be corrected later)
+2. decoder(138), MUX(multiplexer), [[https://www.bilibili.com/video/BV1efLQzZECs/][Latch]](RS Latch[Reset and set]), [[https://www.bilibili.com/video/BV1Ur7PzQEFr][edge-triggered]] -> staged [[https://www.bilibili.com/video/BV1efLQzZECs/][Register]](about 20-24 transistor), cache(6MOS) 
+3. Machine word length ~= bits of GPR (will be corrected later)
 4. ROM: MROM, PROM(only once write), EPROM(light), EEPROM(electron) :=> only the storage unit is different, Flash memory(...)
 5. two dimensional: XY-decode
+6. DRAM refresh policy: all-in-one, discrete, async(the combination of last two)
+7. The difference between DRAM and SRAM
+8. CPU -> MM controller -> MM
+9. MM capactiy extension: capactiy = storage wordline * number of word => extend bitlen or extend wordlen
+10. SDRAM(synchronous) and burst data transfer
+11. Address by byte | Address by word
+12. [[https://www.bilibili.com/video/BV1UB46eWE1X/][cache]]
+
+* Numeric
+1. encoding, unsigned, signed(main) := origin, two's complement, one's complement
+2. zero extension, sign extension, unsigned int = (unsigned) (int), bit cut
+3. fixed-pointing and [[https://pages.cs.wisc.edu/~david/courses/cs552/S12/handouts/goldberg-floating-point.pdf][float-pointing]]
+4. memory order and memory align
+   [[./mem-align.png]]
+
+* Footnotes
+
+[fn:1] For more information, view the fifth chapter of book hardware-software-inteface about all storage devices.
