@@ -1,3 +1,7 @@
+#+OPTIONS: ^:{}
+
+
+
 * Basis
 1. 2 <=> 8 <=> 16
 2. How instructions is designed and executed ?
@@ -72,6 +76,9 @@
 3. fixed-pointing and [[https://pages.cs.wisc.edu/~david/courses/cs552/S12/handouts/goldberg-floating-point.pdf][float-pointing]]
 4. memory order and memory align
    [[./mem-align.png]]
+5. arithmetic and logic operations
+6. full adder, CLA(compute the carry_{n}), OF(three implementation), *PSWR(Program Status Word Register)/CCR(Condition Code Register)*
+7. multiply and divide (too hard, not very clearly)
 
 * Footnotes
 
