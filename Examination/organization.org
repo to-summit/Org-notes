@@ -1,7 +1,5 @@
 #+OPTIONS: ^:{}
 
-
-
 * Basis
 1. 2 <=> 8 <=> 16
 2. How instructions is designed and executed ?
@@ -76,9 +74,11 @@
 3. fixed-pointing and [[https://pages.cs.wisc.edu/~david/courses/cs552/S12/handouts/goldberg-floating-point.pdf][float-pointing]]
 4. memory order and memory align
    [[./mem-align.png]]
-5. arithmetic and logic operations
-6. full adder, CLA(compute the carry_{n}), OF(three implementation), *PSWR(Program Status Word Register)/CCR(Condition Code Register)*
-7. multiply and divide (too hard, not very clearly)
+5. ECC (SEC/DEC): check the book /interface/ Dependable Memory Hierarchy chapter and [[https://www.bilibili.com/video/BV1PT4y1a7Sv][this video]], *you can don't figure out this here, but you will face it at the computer network*, btw, network will occur the burst error in frame because the unreliable medium so will need *CRC*.
+6. arithmetic and logic operations
+7. full adder, CLA(compute the carry_{n}), OF(three implementation), *PSWR(Program Status Word Register)/CCR(Condition Code Register)*
+8. multiply and divide (too hard, not very clearly)
+
 
 * Footnotes
 
