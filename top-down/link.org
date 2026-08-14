@@ -1,0 +1,27 @@
+* Introduction
+Link Layer main assignments:
+- framing
+- link access
+- reliable delivery
+- error detection and correction
+
+Link layer is where the hardware meets software in the protocol stack.
+ - H: Network Interface Card
+ - S: link-layer address info and activate the controller
+
+* EDC
+1. Parity Checks
+   Forward Error Correction: the ability to detect and correct
+2. Checksumming Methods
+   TCP and UDP do this for all fields while IP only for header. Trasport use this while link use CRC because former implemented in software.
+3. Cyclic Redundancy Check
+   Treat the data as the coefficient of polynomial, and use the magical operation XOR to unify the add, minus, multiply and divide.
+
+* Protocol for multiple access points
+1. Channel Partition
+   - TDM
+   - FDM
+   - CDMA (main in wireless)
+2. Random Access
+   - Slotted ALOHA
+   - ALOHA
