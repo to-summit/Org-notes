@@ -23,5 +23,16 @@ Link layer is where the hardware meets software in the protocol stack.
    - FDM
    - CDMA (main in wireless)
 2. Random Access
-   - Slotted ALOHA
-   - ALOHA
+   - Slotted ALOHA: a little like the TDM
+   - ALOHA: just the transmission time
+   - CSMA/CD: binary exponential backoff
+3. Taking-Turns
+   - polling: master, bluetooth
+   - token-passing: FDDI(fiber distributed data interface), IEEE 802.5 token ring protocol
+4. DOCSIS
+   view the book
+
+* Switched LAN
+- Layer-2 switch don't have a MAC address
+- Ethernet
+     
