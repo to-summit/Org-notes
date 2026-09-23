@@ -26,26 +26,26 @@
        * =Mono=
 
 * Shortcuts And Table Usage Demo
-|-----------------------+-------------------------------------------------------------------------------------|
-| shorcut               | behavior                                                                            |
-|-----------------------+-------------------------------------------------------------------------------------|
-| (S-)TAB               | cycle current chapter(all file)'s states                                            |
-| C-c C-n/C-p           | jump between headings                                                               |
-| C-c C-u               | jump to the present line's heading line                                             |
-| C-c C-j               | browser the whole document, for quickly navigate                                    |
-| M-RET/M-S-RET         | insert a same level (TODO)heading                                                   |
-| C-c l/C-c C-l/C-c C-o | store/insert/open link                                                              |
-| C-c C-q               | add tags                                                                            |
-| C-c C-e               | export                                                                              |
-| C-c C-d               | insert deadline                                                                     |
-| C-c C-x f             | insert a footnote or type C-c C-o will jump at footnote and text #[fn:1] <<anchor>> |
-| C-c .                 | create a timestamp                                                                  |
-| C-c C-,               | insert a block                                                                      |
-| C-c C-x C-h           | for help documennt                                                                  |
-| C-c \vert{}                 | create/convert a region to a table                                                  |
-| M-LEFT/RIGHT/UP-DOWN  | same behavior like the move-text package, but just in table (add shift to delete)   |
-| C-c ^                 | sort currect table according to the current column                                  |
-|-----------------------+-------------------------------------------------------------------------------------|
+|-----------------------+-----------------------------------------------------------------------------------------|
+| shorcut               | behavior                                                                                |
+|-----------------------+-----------------------------------------------------------------------------------------|
+| (S-)TAB               | cycle current chapter(all file)'s states                                                |
+| C-c C-n/C-p           | jump between headings                                                                   |
+| C-c C-u               | jump to the present line's heading line                                                 |
+| C-c C-j               | browser the whole document, for quickly navigate                                        |
+| M-RET/M-S-RET         | insert a same level (TODO)heading                                                       |
+| C-c l/C-c C-l/C-c C-o | store/insert/open link                                                                  |
+| C-c C-q               | add tags                                                                                |
+| C-c C-e               | export                                                                                  |
+| C-c C-d               | insert deadline                                                                         |
+| C-c C-x f             | **insert a footnote or type C-c C-o will jump at footnote and text** #[fn:1] <<anchor>> |
+| C-c .                 | create a timestamp                                                                      |
+| C-c C-,               | insert a block                                                                          |
+| C-c C-x C-h           | for help documennt                                                                      |
+| C-c \vert{}                 | create/convert a region to a table                                                      |
+| M-LEFT/RIGHT/UP-DOWN  | same behavior like the move-text package, but just in table (add shift to delete)       |
+| C-c ^                 | sort currect table according to the current column                                      |
+|-----------------------+-----------------------------------------------------------------------------------------|
 
 * Image 
 See \ref{example}
@@ -53,6 +53,14 @@ See \ref{example}
 #+LABEL: example
 #+ATTR_ORG: :width 800px :height 400px
 [[file:link.png]]
+
+* Clock
+1. C-c C-x C-i to open a clock and use the C-c C-x C-o to close it.
+2. If there is a sudden exit, it will generate the dangling clock, use C-c C-x C-z to choose how to handle.
+3. put the cursor on the clock line, then use the C-c C-y to compute the consumed time.
+4. C-c C-x C-j to jump to the most recent clock(running or closed). 
+5. C-c C-x C-r to generate a clock table to summarize.
+6. use C-c C-x C-q when you errorly start a clock. 
 
 * Metadata
 Insert a raw text you can use =block= syntax or add a =:= at start of line
