@@ -59,7 +59,7 @@ See \ref{example}
 2. If there is a sudden exit, it will generate the dangling clock, use C-c C-x C-z to choose how to handle.
 3. put the cursor on the clock line, then use the C-c C-y to compute the consumed time.
 4. C-c C-x C-j to jump to the most recent clock(running or closed). 
-5. C-c C-x C-r to generate a clock table to summarize.
+5. M-x org-clock-report to generate a clock table to summarize.
 6. use C-c C-x C-q when you errorly start a clock. 
 
 * Metadata
@@ -112,6 +112,7 @@ creator:   turn on/off inclusion of creator info into exported file
 timestamp: turn on/off inclusion creation time into exported file
 d:         turn on/off inclusion of drawers
 #+end_example
+After modify the metadata you need to reload the buffer to view the functionality, by =M-x org-reload-buffer=.
 
 * Src Block
 Recently I am learning the R language. I don't want to download RStudio, not to mean that I don't like the modern UI of software, indeed I also use notebook if I need to interactively use python. So I have to use org-mode to replace the RMarkdown.

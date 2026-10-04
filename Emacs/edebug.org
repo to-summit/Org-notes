@@ -1,0 +1,34 @@
+#+DESCRIPTION: First try on `edebug'
+
+* Problem Description and Reproduce
+1. boot emacs with virtual env
+2. install the /pydoc/ package
+3. reboot emacs with system python interpreter
+4. M-x pydoc will prompt "Wrong type argument: sequencp /bin/bash:"
+
+* Debugging
+1. I met this because I forgot to activate the venv before opening the emacs. so I change the value of =python-shell-interpreter= to the path of venv's interpreter manually. But after I reproduced this bug, this is not the cause.
+2. First, when I view the prompt, I search the google for "Wrong type argument" and got that this is a emacs error prompt. Then I open the debug by
+   #+begin_src elisp
+     (setq debug-on-error t)
+     ;; or use M-x toggle-debug-on-error
+   #+end_src
+   It return me the call stack, I found the error is casted by the =mapcar=. Before I jump to the source code by =C-h f=, this time I learned a new trick =M-x find-function=. Anyway, this func will get the params by construct the command by using =concat=, here refer to a variable called =pydoc-python-command=, its value is "python". Here I roughly know, bacause in Linux, the python interpreter often called python3. But here I don't know if there is bacause I manually modified the =python-shell-interpreter=. So I reset the two vars to "python3", the default value. This time it successfully enter the prompt phase. I randomly tested a =array.array=, it output "bin/bash: line 1: python: command not found". Until here I can't get any more information. Under the help of AI, I found the **edebug**.
+
+   I jumped to the source again, =C-u C-M-x= to add a **instrumentation** on the /pydoc/ function. Then run the pydoc, it will begin the debug process, press =SPACE= to step debug. Last, I found the var =pydoc-command=, alter this to "python3 -m pydoc" solve the problem.
+
+* Summary
+What I learn this time:
+|-----------------------------------+--------------------------------------------------------------------------------|
+| shortcut/function                 | functionality                                                                  |
+|-----------------------------------+--------------------------------------------------------------------------------|
+| M-x find-function                 | quickly found the source code of a function                                    |
+| mapcar                            | `filter' in python                                                             |
+| C-u C-M-x                         | insert instrumentation, like the breakpoint in gdb                             |
+| M-: (get '{varname} 'edebug)      | view if the instrumentation is successfully inserted                                             |
+| M-x edebug-remove-instrumentation | remove the breakpoint                                                          |
+| M-x toggle-debug-on-error         | (setq debug-on-error t) is also OK, will print the call stack when error occur |
+| M-x debug-on-variable-change      | like the watchpoint, cancel-debug-on-variable-change to unwatch it             |
+|-----------------------------------+--------------------------------------------------------------------------------|
+
+   
