@@ -1,0 +1,45 @@
+#+TITLE: Basic usage of emacs-gnus
+#+DESCRIPTION: The message system of emacs: gnus -- basic operations
+
+* Concepts(Main Buffer Types)
+Servers -- Groups -- Summary(Articles)     
+1. Server -- Sources of groups(^ on group to view)
+2. Groups -- collections of articles(when u enter gnus)
+3. Summary -- list of articles(when u enter a group)
+4. Article -- contents(when open a mail)
+
+* Shortcuts
+** Group Buffer
+1. SPC/RET -- enter group
+2. n/p -- next/previous **unread**
+3. g -- refresh
+4. m -- compose new email
+5. a -- compose new post
+6. c -- mark all read(Catch up)
+7. ^ -- open server buffer
+8. q -- quit
+** Summary
+1. d -- mark read and next
+2. u -- mark unread
+3. r(R) -- reply with origin
+4. f(F) -- followup/forward
+5. ! -- always show
+6. ? -- never expired but don't show in **summary**
+** Article
+1. o -- save article
+2. | -- pipe
+3. C-u g -- show raw article
+*** MIME 
+1. o -- save
+2. K O -- give filename then save then replace this part to external link
+3. K v -- view it in emacs(if it can)
+4. K e -- use external program to view
+5. K | -- pipe
+** Message(edit buffer)
+1. C-c C-c -- send and exit
+2. C-c C-s -- send and keep
+3. C-c C-a -- attach file
+4. C-c C-f C-t -- goto **To**
+5. C-c C-f C-s -- goto **Subject**
+
+ 
