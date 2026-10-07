@@ -23,12 +23,17 @@ Servers -- Groups -- Summary(Articles)
 2. u -- mark unread
 3. r(R) -- reply with origin
 4. f(F) -- followup/forward
-5. ! -- always show
+5. ! -- always show(gnus default just show the **unread** and **!** tagged, to view all, type C-u RET on group)
 6. ? -- never expired but don't show in **summary**
 ** Article
 1. o -- save article
 2. | -- pipe
 3. C-u g -- show raw article
+4. B DEL -- permanently del
+5. B m -- move to other groups
+6. # -- set tag
+7. E -- set expired tag
+8. B e/C-M-e -- del long enough/all expired
 *** MIME 
 1. o -- save
 2. K O -- give filename then save then replace this part to external link
