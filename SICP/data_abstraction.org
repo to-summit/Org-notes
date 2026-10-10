@@ -11,5 +11,7 @@ It is the mark of an educated mind to be able to entain a though without accepti
 3. Means of abstraction. How to **name** and **manipulate** a complex thing.
 ** The distinction betweeen function and procedure:
 In mathematics, we often learn **declarative knowledge**, while in programming, we need **imperative knowledge**. Author just expresses this by explaining **square root**. I happened to recall when first learned C, there is a programming homework, how to compute the root of an equation, I just write =x*x + x - 1 = 0; printf("%lf", x);=. Today I have learned, this is an important distinction between mathematics and programming, which is the difference between /declarative/ and /imperative/.
-** 
 
+
+* Intermediate Thoughts
+Whether human beings still need to write code or even read books is a question in AI times. I was affected by the development of AI when I read the classic CS books. From today <2026-10-10 Sat>, I decide to restart the plan of reading SICP, not for CV/work/money/..., just for the joy in computer and programming.
