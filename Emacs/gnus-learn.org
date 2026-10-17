@@ -11,13 +11,14 @@ Servers -- Groups -- Summary(Articles)
 * Shortcuts
 ** Group Buffer
 1. SPC/RET -- enter group
-2. n/p -- next/previous **unread**
-3. g -- refresh
-4. m -- compose new email
-5. a -- compose new post
-6. c -- mark all read(Catch up)
-7. ^ -- open server buffer
-8. q -- quit
+2. C-u RET -- see all emails
+3. n/p -- next/previous **unread**
+4. g -- refresh
+5. m -- compose new email
+6. a -- compose new post
+7. c -- mark all read(Catch up)
+8. ^ -- open server buffer
+9. q -- quit
 ** Summary
 1. d -- mark read and next
 2. u -- mark unread
@@ -25,6 +26,7 @@ Servers -- Groups -- Summary(Articles)
 4. f(F) -- followup/forward
 5. ! -- always show(gnus default just show the **unread** and **!** tagged, to view all, type C-u RET on group)
 6. ? -- never expired but don't show in **summary**
+7. C-u M-g -- show all emails
 ** Article
 1. o -- save article
 2. | -- pipe
