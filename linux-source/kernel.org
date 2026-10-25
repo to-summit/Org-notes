@@ -1,0 +1,4 @@
+#+TITLE: Kernel learning
+
+* Goal
+Master the general details in Linux world. I found a historically best(just in the point of my view) tutorial: [[https://github.com/0xAX/linux-insides][linux-insides]]

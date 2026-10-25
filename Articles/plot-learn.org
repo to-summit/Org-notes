@@ -52,7 +52,7 @@ Here are some demos when I follow the book:
 Also, here's a good tikz [[https://www.math.univ-toulouse.fr/~tbrevide/tikz-gallery/][gallery]] .
 
 * Python matplotlib
-Here is the official [[https://www.youtube.com/watch?v=9QUtcfyBFhE&list=PLaYBfUc8SG7W4cTZprVWjbtwrottWuk8c][gallery]]. The best tutorial I think is this: [[https://github.com/rougier/matplotlib-tutorial][matplotlib-tutorial]]. (btw, this guy's other python's tutorials are very good and fanciful).
+The best tutorial I think is this: [[https://github.com/rougier/matplotlib-tutorial][matplotlib-tutorial]]. (btw, this guy's other python's tutorials are very good and fanciful).
 * gnuplot
 This is a very old tool, but I think the quality is still OK.
 I think this [[https://www.youtube.com/watch?v=9QUtcfyBFhE&list=PLaYBfUc8SG7W4cTZprVWjbtwrottWuk8c][playlist]] contains all I need.
