@@ -1,0 +1,61 @@
+#+DESCRIPTION: Plot Related Skills Learn.
+#+OPTIONS: ^:{}
+#+OPTIONS: toc: 2
+#+OPTIONS:
+#+STARTUP: overview
+#+STARTUP: hideblocks 
+#+STARTUP: hidestars
+
+* Goal
+There are many skills to plot nice picture. I will learn them step by step, and record the learning process cumulatively. Besides, here is very novel read experience: [[https://www.chapterpal.com/bookstore\\][chapterpal]].
+
+* LaTeX TiKz
+Recently, I found a very good [[https://pgf.sourceforge.net/pgf_CVS.pdf][tutorial]] of tikz, which is a powerful plot package in LaTeX.
+
+Here are some demos when I follow the book: 
+#+BEGIN_SRC latex
+  \documentclass{article}
+
+  \usepackage{tikz}
+
+  \begin{document}
+
+  We are working on: \tikz \draw (-1.5, 0) -- (1.5, 0) -- (0, -1.5) -- (0, 1.5);
+  \begin{tikzpicture}
+    \draw (-1.5, 0) -- (1.5, 0);
+    \draw (0, -1.5) -- (0, 1.5);
+  \end{tikzpicture}
+
+  A very cool inline small ellipse: \tikz \draw[rotate=30] (0, 0) ellipse (6pt and 2pt);.
+
+  Use Bezier Curve to plot a circle:
+  \begin{tikzpicture}
+    \draw (-1.5, 0) -- (1.5, 0);
+    \draw (0, -1.5) -- (0, 1.5);
+    \draw (-1, 0) .. controls (-1, 0.555) and (-0.555, 1) .. (0, 1)
+    .. controls (0.555, 1) and (1, 0.555) .. (1, 0);
+  \end{tikzpicture}
+              
+  Use the `circle' operation:
+  \begin{tikzpicture}
+    \draw (-1.5, 0) -- (1.5, 0);
+    \draw (0, -1.5) -- (0, 1.5);
+    \draw (0, 0) circle (1);
+    \draw (0, 0) rectangle (0.5, 0.5);
+    \draw (-0.5, -0.5) rectangle (-1, -1);
+    \draw[step=0.5, gray, very thin] (-1.4, 1.4) grid (1.4, -1.4);
+  \end{tikzpicture}
+
+  \end{document}
+#+END_SRC
+
+Also, here's a good tikz [[https://www.math.univ-toulouse.fr/~tbrevide/tikz-gallery/][gallery]] .
+
+* Python matplotlib
+Here is the official [[https://www.youtube.com/watch?v=9QUtcfyBFhE&list=PLaYBfUc8SG7W4cTZprVWjbtwrottWuk8c][gallery]]. The best tutorial I think is this: [[https://github.com/rougier/matplotlib-tutorial][matplotlib-tutorial]]. (btw, this guy's other python's tutorials are very good and fanciful).
+* gnuplot
+This is a very old tool, but I think the quality is still OK.
+I think this [[https://www.youtube.com/watch?v=9QUtcfyBFhE&list=PLaYBfUc8SG7W4cTZprVWjbtwrottWuk8c][playlist]] contains all I need.
+
+* R
+I know R provides many powerful packages to give a high-quality plot easily, but I really can't find too much cases to use R instead of python. But before when I first know this project, I indeed found many interesting books: [[https://bookdown.org/wangminjie/R4DS/index.html][R4DS]], [[https://math.pku.edu.cn/teachers/lidf/course/fts/ftsnotes/html/_ftsnotes/index.html][Peking University Time Series]], R in Action.
