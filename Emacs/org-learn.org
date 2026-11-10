@@ -2,6 +2,7 @@
 #+AUTHOR: Doodo
 #+EMAIL: 2901652008@qq.com
 #+DATE: <2026-04-28 Tue>
+#+STARTUP: overview 
 
 * Before everything
     In Org-mode, we use * to present headings just like #
@@ -54,13 +55,18 @@ See \ref{example}
 #+ATTR_ORG: :width 800px :height 400px
 [[file:link.png]]
 
-* Clock
+* Clock And Timer
 1. C-c C-x C-i to open a clock and use the C-c C-x C-o to close it.
 2. If there is a sudden exit, it will generate the dangling clock, use C-c C-x C-z to choose how to handle.
 3. put the cursor on the clock line, then use the C-c C-y to compute the consumed time.
 4. C-c C-x C-j to jump to the most recent clock(running or closed). 
 5. M-x org-clock-report to generate a clock table to summarize.
-6. use C-c C-x C-q when you errorly start a clock. 
+6. use C-c C-x C-q when you errorly start a clock.
+7. C-c C-x ; this will prompt a duration for a countdown timer
+8. C-c C-x . insert how many time since timer begin
+9. C-c C-x - same as above, but contains some fancy prefix and suffix
+10. C-c C-x , pause or contine the timer
+11. C-c C-x _ stop
 
 * Metadata
 Insert a raw text you can use =block= syntax or add a =:= at start of line
